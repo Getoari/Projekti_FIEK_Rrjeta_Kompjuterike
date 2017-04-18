@@ -148,17 +148,17 @@ while kondita:
                 pergjigja = str(round(float(string[2]) * 0.85, 2))
             elif string[1] == '6':
                 pergjigja = str(round(float(string[2]) * 1.18, 2))
+            else:
+                pergjigja = "Formati: VALUTA [NUMRI I OPERACIONI] [VLERA PER KONVERTIM]"
+                pergjigja += "\nZgjedh njerin nga OPERACIONET:"
+                pergjigja += "\n1 - EurToUSD"
+                pergjigja += "\n2 - USDToEur" 
+                pergjigja += "\n3 - EurToCHF" 
+                pergjigja += "\n4 - CHFToEur"
+                pergjigja += "\n5 - EurToGBP"
+                pergjigja += "\n6 - GBPToEur"
         else:
-            pergjigja = "Formati: VALUTA [NUMRI I OPERACIONI] [VLERA PER KONVERTIM]"
-            pergjigja += "\nZgjedh njerin nga OPERACIONET:"
-            pergjigja += "\n1 - EurToUSD"
-            pergjigja += "\n2 - USDToEur" 
-            pergjigja += "\n3 - EurToCHF" 
-            pergjigja += "\n4 - CHFToEur"
-            pergjigja += "\n5 - EurToGBP"
-            pergjigja += "\n6 - GBPToEur"
-        else:
-        pergjigja = "Shenoni njeren nga sherbimet tona: IP, PORT, ZANORE, PRINTO, HOST, TIME, KENO, FAKTORIEL, KONVERTO, ARMSTRONG, FIBONNACI."
+            pergjigja = "Shenoni njeren nga sherbimet tona: IP, PORT, ZANORE, PRINTO, HOST, TIME, KENO, FAKTORIEL, KONVERTO, ARMSTRONG, FIBONNACI."
         
     elif kushti[0:8] == "KONVERTO":
         if kushti[8:9] == " ":
