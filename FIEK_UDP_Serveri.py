@@ -151,6 +151,73 @@ while kondita:
             pergjigja += "\n4 - CHFToEur"
             pergjigja += "\n5 - EurToGBP"
             pergjigja += "\n6 - GBPToEur"
+            
+    elif kushti[0:8] == "KONVERTO":
+        if kushti[8:9] == " ":
+            string = kushti.split(" ")
+            if string[1] == '1':
+                pergjigja = str(float(string[2]) + 273.15)
+            elif string[1] == '2':
+                pergjigja = str(float(string[2]) * 1.8 + 32)
+            elif string[1] == '3':
+                pergjigja = str(float(string[2]) * 9 / 5 - 459.67)
+            elif string[1] == '4':
+                pergjigja = str(float(string[2]) - 273.15)
+            elif string[1] == '5':
+                pergjigja = str((float(string[2]) - 32) / 1.8)
+            elif string[1] == '6':
+                pergjigja = str(float(string[2]) + 459.67)
+            elif string[1] == '7':
+                pergjigja = str(float(string[2]) / 2.2046)
+            elif string[1] == '8':
+                pergjigja = str(float(string[2]) * 2.2046)
+            else:
+                pergjigja = "Shkruaj njerin nga opsionet [ 1 - 8 ]"
+        else:
+            pergjigja = "Formati: KONVERTO [NUMRI I OPERACIONI] [VLERA PER KONVERTIM]"
+            pergjigja += "\nZgjedh njerin nga OPERACIONET:"
+            pergjigja += "\n1 - CelsiusToKelvin"
+            pergjigja += "\n2 - CelsiusToFahrenheit" 
+            pergjigja += "\n3 - KelvinToFahrenheit" 
+            pergjigja += "\n4 - KelvinToCelsius"
+            pergjigja += "\n5 - FahrenheitToCelsius"
+            pergjigja += "\n6 - FahrenheitToKelvin"
+            pergjigja += "\n7 - PoundToKilogram"
+            pergjigja += "\n8 - KilogramToPound"
+
+    elif kushti[0:9] == "FAKTORIEL":
+        if kushti[9:10] == " ":
+            pergjigja = str(math.factorial(int(kushti[10:len(kushti)])))
+        else:
+            pergjigja = "Formati: FAKTORIEL [numri]";
+
+    elif kushti[0:9] == "ARMSTRONG":
+        if kushti[9:10] == " ":
+            shuma = 0
+            i = int(kushti[10:len(kushti)])
+            while i>0:
+                mod10 = i % 10
+                shuma += math.pow(mod10, 3)
+                i //= 10
+            if shuma == int(kushti[10:len(kushti)]):
+                pergjigja = "Numri i dhene eshte numer ARMSTRONG"
+            else:
+                pergjigja = "Numri i dhene nuk eshte numer ARMSTRONG"
+        else:
+            pergjigja = "Formati: ARMSTRONG [numri]";
+
+    elif kushti[0:9] =="FIBONNACI":
+        ardhshme = 1 
+        paraprake = -1
+        if kushti[9:10] == " ":
+            for i in range(0, int(kushti[10:len(kushti)])):
+                shuma = ardhshme + paraprake
+                paraprake = ardhshme
+                ardhshme = shuma
+            pergjigja = str(shuma)
+        else:
+            pergjigja = "Formati: FIBONNACI [numri]";
+
     
     
     try:
