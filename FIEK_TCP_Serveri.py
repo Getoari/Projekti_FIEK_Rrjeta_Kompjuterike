@@ -101,10 +101,10 @@ while kondita:
             pergjigja = ""
             for i in range(0,int(kushti[12:len(kushti)])):
                 if i > 1:
-                     for j in range(2,i):
-                            if (i % j) == 0:
-                            break
-                        else:
+                    for j in range(2,i):
+                          if (i % j) == 0:
+                                break
+                    else:
                         pergjigja += "\n" + str(i)
         else:
             pergjigja = "Formati: NUMERPRIMAR [Numri deri te i cili do te gjenerohen N.P.]"
