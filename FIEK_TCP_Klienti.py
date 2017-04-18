@@ -34,3 +34,4 @@ while True:
     print("Pergjigja: " + pergjigja.decode("ASCII"))
     
 clientSocket.close()
+input()
