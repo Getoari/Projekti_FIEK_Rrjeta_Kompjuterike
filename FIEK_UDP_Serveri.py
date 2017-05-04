@@ -1,6 +1,8 @@
 from socket import *
 import platform 
 from time import gmtime, strftime
+import math
+import ipaddress
 import random 
 port = 9000
 
@@ -231,20 +233,27 @@ while kondita:
             classB = ipaddress.IPv4Network(("172.16.0.0", "255.240.0.0"))
             classC = ipaddress.IPv4Network(("192.168.0.0", "255.255.0.0"))
 
-            if ipaddr in classA:
-                addr = ipaddress.IPv4Network(ip[0]+".0.0.0/"+addr[1])
-                if maska > 31 or maska < 8:
-                    pergjigja = "Netmaska per ip te klases A duhet te jete nga 8 deri ne 31"
-            elif ipaddr in classB:
-                addr = ipaddress.IPv4Network(ip[0]+"."+ip[1]+".0.0/"+addr[1])
-                if maska > 31 or maska < 16:
-                    pergjigja = "Netmaska per ip te klases B duhet te jete nga 16 deri ne 31"
-            elif ipaddr in classC:
-                addr = ipaddress.IPv4Network(ip[0]+"."+ip[1]+".0.0/"+addr[1])
-                if maska > 31 or maska < 16:
-                    pergjigja = "Netmaska per ip te klases C duhet te jete nga 16 deri ne 31"
-            else:
-                pergigja = "Shkruani nje ip adres private valide!"
+            try:
+                if ipaddr in classA:
+                    if maska > 31 or maska < 8:
+                        pergjigja = "Netmaska per ip te klases A duhet te jete nga 8 deri ne 31"
+                    else:
+                        addr = ipaddress.IPv4Network(ip[0]+".0.0.0/"+addr[1])
+                elif ipaddr in classB:
+                    if maska > 31 or maska < 16:
+                        pergjigja = "Netmaska per ip te klases B duhet te jete nga 16 deri ne 31"
+                    else:
+                        addr = ipaddress.IPv4Network(ip[0]+"."+ip[1]+".0.0/"+addr[1])
+                elif ipaddr in classC:
+                    if maska > 31 or maska < 16:
+                        pergjigja = "Netmaska per ip te klases C duhet te jete nga 16 deri ne 31"
+                    else:
+                        addr = ipaddress.IPv4Network(ip[0]+"."+ip[1]+".0.0/"+addr[1])
+                else:
+                    pergigja = "Shkruani nje ip adres private valide!"
+            except :
+                pass
+            
 
 
             if pergjigja == "":
@@ -252,7 +261,7 @@ while kondita:
                 pergjigja += "\nHosti Pare: " +  str(addr.network_address+1) + "\nHosti Fundit: " +  str(addr.broadcast_address - 1)
         else:
             pergjigja = "Formati: SUBNET [Adresa Private/Netmaska]"
-
+            
     elif kushti[0:7] == "IPCLASS":
         if kushti[7:8] == " ":
 
